@@ -1,0 +1,46 @@
+.nav-bar{
+    width: 1250px;
+    background: chocolate;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo{
+        display: flex;
+        flex-direction: column;
+        transition: 0.5s ease-in-out;
+        &::after{
+            position: absolute;
+            content: "Load Random Movies";
+            margin-top: 80px;
+            margin-left: 15px;
+            transform: rotate(-5deg);
+            visibility: hidden;
+        }
+        &:hover{
+            cursor: pointer;
+            transform: translateY(-20px);
+            &::after{
+                visibility: visible;
+                transform: translateY(-25px);
+                
+            }
+        }
+    }
+    .floating-box{
+        position: fixed;
+        background: rgba(0, 0, 0, 0.534);
+        top: 150px;
+        left:300px;
+        padding:300px 200px;
+        z-index: 5;
+        .help{
+            
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+        }
+    }
+    
+}

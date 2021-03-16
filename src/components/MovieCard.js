@@ -5,6 +5,7 @@ import './moviecard.scss';
 
 export default function MovieCard(props){
     const [like,setLike] = useState("primary");
+    const poster_url = "https://image.tmdb.org/t/p/w300"+props.movie.poster_path;
 
     useEffect(()=>{
         checkLikedMovies();
@@ -43,8 +44,8 @@ export default function MovieCard(props){
                 <FavoriteIcon />
             </Fab>
             </div>
-            <div className="image"><img src={props.movie.Poster} alt="poster_image"/></div> 
-            <div className="title">{props.movie.Title}</div>           
+            <div className="image"><img src={props.movie.Poster || poster_url} alt="poster_image"/></div> 
+            <div className="title">{props.movie.Title || props.movie.original_title}</div>           
         </div>
     )
 }
