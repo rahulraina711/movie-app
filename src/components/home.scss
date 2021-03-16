@@ -1,0 +1,51 @@
+.data-field{
+    width: 1280px;
+    background: rgb(41, 40, 40);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .nav-bar{
+        width: 1250px;
+        background: chocolate;
+        padding: 15px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .logo{
+            display: flex;
+            flex-direction: column;
+            transition: 0.5s ease-in-out;
+            &::after{
+                position: absolute;
+                content: "Load Random Movies";
+                margin-top: 80px;
+                margin-left: 15px;
+                transform: rotate(-5deg);
+                visibility: hidden;
+            }
+            &:hover{
+                cursor: pointer;
+                transform: translateY(-20px);
+                &::after{
+                    visibility: visible;
+                    transform: translateY(-25px);
+                    
+                }
+            }
+        }
+    }
+    .movie-display{
+        padding: 3px;
+        display: grid;
+        grid-template-columns: 310px 310px 310px 310px ;
+        gap: 3px 10px;
+    }
+    .footer-area{
+        background: black;
+        color: white;
+        display : flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

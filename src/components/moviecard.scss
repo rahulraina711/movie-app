@@ -1,0 +1,26 @@
+.movie-card{
+    padding: 5px;
+    background: rgb(97,95,95);
+    background: linear-gradient(0deg, rgba(97,95,95,1) 0%, rgba(162,162,162,1) 49%, rgba(85,83,83,1) 100%);
+
+    .a2f{
+        position: absolute;
+        margin-top: 385px;
+        margin-left: 235px;
+        color: cadetblue;
+        z-index: 1;
+    }
+
+    .image{
+
+    }
+
+    .title{
+        background: rgba(0, 0, 0, 0.493);
+        padding: 5px;
+        position: absolute;
+        margin-top: -35px;
+        color: rgb(255, 255, 255);
+        width: 290px;
+    }
+}
