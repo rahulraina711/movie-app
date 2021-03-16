@@ -29,7 +29,7 @@ function Navbar(){
         <div className="nav-bar">
                 <div className="logo"><img src={logo} onClick={onClickReload} alt="logo"/></div>
                 <div className="website-title">Welcome to The Movie Database</div>
-                <div className="more-options" >Github</div>
+                <div className="more-options" onClick={()=>{setHelp(true)}}>Help</div>
                 {help&&(<div className="floating-box">
                     <div className="help">
 

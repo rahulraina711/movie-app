@@ -6,6 +6,13 @@
     justify-content: space-between;
     align-items: center;
 
+    .more-options{
+        &:hover{
+            cursor: pointer;
+            color: white;
+        }
+    }
+
     .logo{
         display: flex;
         flex-direction: column;
@@ -30,13 +37,12 @@
     }
     .floating-box{
         position: fixed;
-        background: rgba(0, 0, 0, 0.534);
-        top: 150px;
+        background: rgba(0, 0, 0, 0.7);
+        top: 0px;
         left:300px;
-        padding:300px 200px;
+        padding:320px 200px;
         z-index: 5;
         .help{
-            
             background: white;
             padding: 25px;
             border-radius: 20px;
