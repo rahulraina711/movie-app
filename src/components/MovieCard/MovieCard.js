@@ -37,7 +37,7 @@ export default function MovieCard(props){
         
         if(like==="primary"){
             setLike("secondary");
-            localStorage.setItem(props.movie.original_title, poster_url);
+            localStorage.setItem(props.movie.original_title, props.movie.id+" "+poster_url);
         }
         else if (like==="secondary"){
             setLike("primary");

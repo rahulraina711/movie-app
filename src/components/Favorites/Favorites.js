@@ -15,7 +15,8 @@ function Favorites() {
             let poster = localStorage.getItem(localStorage.key(i));
             let details = {
                 Title : name,
-                Poster: poster
+                Poster: poster.split(" ")[1],
+                id:poster.split(" ")[0]
             }
             favList.push(details);
         }
