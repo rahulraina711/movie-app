@@ -49,12 +49,12 @@ export default function MovieCard(props){
     return(
         <div className="movie-card">
             <div className="a2f" onClick={likeHandler}>
-            <Fab enabled="true" color={like} aria-label="like">
+            {!props.isFav && (<Fab enabled="true" color={like} aria-label="like">
                 <FavoriteIcon />
-            </Fab>
+            </Fab>)}
             </div>
-            <div className="image"><Link className="link" to={`/movie/${props.movie.id}`}><img className="poster" src={props.movie.Poster || poster_url} alt="poster_image"/></Link></div> 
-            <div className="title">{props.movie.Title || props.movie.original_title}</div>           
+            <div className="image"><Link className="link" to={`/movie/${props.movie.id}`}><img className="poster" src={props.movie.Poster || poster_url} alt="poster_image" /></Link></div> 
+            <div className="title" >{props.movie.Title || props.movie.original_title}</div>           
         </div>
     )
 }

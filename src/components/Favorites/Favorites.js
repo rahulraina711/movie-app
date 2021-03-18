@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import MovieCard from './MovieCard';
-import logo from './logo.png';
+import MovieCard from '../MovieCard/MovieCard';
 
-function Favourites() {
+function Favorites() {
     let favList = [];
     const [favs, setFavs]=useState([]);
 
@@ -28,19 +27,14 @@ function Favourites() {
         let allMovies = [...favs];
 
         return allMovies.map((movie, i)=>{
-            return <MovieCard key={i} movie = {movie} />
+            return <MovieCard key={i} movie = {movie} isFav={true} />
         })
     }
 
     return(
         <div className="data-field">
-            <div className="nav-bar">
-                <div className="logo"><img src={logo} alt="logo"/></div>
-                <div className="website-title">Welcome to The Movie Database</div>
-                <div className="more-options">I'm Felling Lucky</div>
-            </div>
             <div className="movie-display">
-                {renderFavs()}
+                {favs.length>0?renderFavs():<div className="empty-favs">Looks pretty empty here</div>}
             </div>
             <div className="footer-area">Made by Rahul Raina</div>
         </div>
@@ -48,4 +42,4 @@ function Favourites() {
 
 }
 
-export default Favourites;
+export default Favorites;
