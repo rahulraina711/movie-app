@@ -1,5 +1,4 @@
 .nav-bar{
-    width: 1250px;
     background: chocolate;
     padding: 15px;
     display: flex;
@@ -15,7 +14,7 @@
 
     .logo{
         display: flex;
-        flex-direction: column;
+        
         transition: 0.5s ease-in-out;
         &::after{
             position: absolute;
@@ -35,27 +34,11 @@
             }
         }
     }
-    .floating-box{
-        position: fixed;
-        background: rgba(0, 0, 0, 0.7);
-        top: 0px;
-        left:300px;
-        padding:320px 200px;
-        z-index: 5;
-        .help{
-            background: white;
-            padding: 25px;
-            border-radius: 20px;
-        }
-    }
     
 }
 
 @media screen and (max-width: 530px){
     .nav-bar{
         position: relative;
-        left: 50px;
-        width: 85%;
-        margin-left: 0px;
     }
 }

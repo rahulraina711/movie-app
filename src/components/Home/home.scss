@@ -1,9 +1,9 @@
 .data-field{
-    width: 530px;
     background: rgb(41, 40, 40);
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 2px solid white;
 
     .top-btns{
         input{
@@ -47,7 +47,6 @@
         flex-direction: column;
         margin-left:0px;
         position: relative;
-        left: 25px;
         .top-btns{
             position: relative;
             left: 60px;
