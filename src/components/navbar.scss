@@ -45,5 +45,8 @@
 @media screen and (max-width: 530px){
     .nav-bar{
         position: relative;
+        .website-title{
+            display: none;
+        }
     }
 }
