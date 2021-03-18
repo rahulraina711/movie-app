@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import MovieCard from './MovieCard';
+import MovieCard from '../MovieCard/MovieCard';
 import axios from "axios";
 
 import './home.scss'
-import movieNames from './movielist';
+import movieNames from '../MovieDetails/movielist';
 import ReactLoading from 'react-loading';
+import { Link } from 'react-router-dom';
 
 export default function Home (){
 
@@ -19,33 +20,6 @@ export default function Home (){
     useEffect(()=>{
         fetchmovies();
     },[])
-
-    async function iamFellingLucky (){
-        setLucky(true);
-        setTopLoading(true);
-        const movieList = movieNames;
-        const randomMovieList = [];
-        for (let i = 0; i <= 19; i++) {
-            var randomIdx = Math.floor(Math.floor(Math.random() * movieList.length));
-            try{
-                let title = movieList[randomIdx];
-                console.log(title);
-                const fetchInfo = await axios.get("https://www.omdbapi.com/?apikey=4e245984&t&t="+title);
-                //console.log(fetchInfo.data);
-                randomMovieList.push(fetchInfo.data);
-                               
-    
-            }catch(err){
-                console.log(err);
-            }
-        
-        }
-        setMovies(randomMovieList);
-        setTopLoading(false);
-        //console.log(randomMovieList);
-
-        
-    }
 
     async function fetchmovies(){
         try{
@@ -74,12 +48,6 @@ export default function Home (){
             console.log(err);
         }
     }
-    
-    function back2Home(){
-        setLucky(false);
-        setTopLoading(true);
-        fetchmovies();
-    }
 
     function renderMovies(){
         let allMovies = [...movies];
@@ -91,10 +59,9 @@ export default function Home (){
     return(
         <div className="data-field">
             <div className="top-btns">
-                {lucky && <button className="btn-def" onClick={back2Home}>Home</button>}
                 <input placeholder="Search a movie here"/>
                 <button className="btn-def">Search</button>
-                <button className="btn-def" onClick={iamFellingLucky}>I m feeling lucky</button>
+                <Link to="/feelinglucky"><button className="btn-def">I m feeling lucky</button></Link>
             </div>
             
             {topLoading&&<ReactLoading type={"bars"} color={"grey"} />}

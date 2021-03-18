@@ -19,7 +19,7 @@
         transition: 0.5s ease-in-out;
         &::after{
             position: absolute;
-            content: "Load Random Movies";
+            content: "Load Popular Movies";
             margin-top: 80px;
             margin-left: 15px;
             transform: rotate(-5deg);
@@ -49,4 +49,13 @@
         }
     }
     
+}
+
+@media screen and (max-width: 530px){
+    .nav-bar{
+        position: relative;
+        left: 50px;
+        width: 85%;
+        margin-left: 0px;
+    }
 }

@@ -2,37 +2,46 @@ import React, { useEffect, useState } from 'react';
 import Fab from '@material-ui/core/Fab';
 import FavoriteIcon from '@material-ui/icons/Favorite';
 import './moviecard.scss';
+import { Link } from 'react-router-dom';
 
 export default function MovieCard(props){
     const [like,setLike] = useState("primary");
     const poster_url = "https://image.tmdb.org/t/p/w300"+props.movie.poster_path;
+    let likedMovies = [];
 
     useEffect(()=>{
         checkLikedMovies();
     },[])
 
     function checkLikedMovies () {
-        let likedMovies = [];
-        for (let i = 0; i < localStorage.length; i++) {
-            var name = localStorage.key(i);
-            likedMovies.push(name);
-
-        }
-        //console.log(likedMovies);
-
-        if(likedMovies.includes(props.movie.Title)){
-            setLike("secondary");
+        if(localStorage.length===0){
+             return console.log("no favs in storage")
+            }
+        else{
+            for (let i = 0; i < localStorage.length; i++) {
+                var name = localStorage.key(i);
+                likedMovies.push(name);
+    
+            }
+            console.log(likedMovies);
+    
+            if(likedMovies.includes(props.movie.original_title)){
+                setLike("secondary");
         }
     }
 
+
+    }
+
     function likeHandler(){
+        
         if(like==="primary"){
             setLike("secondary");
-            localStorage.setItem(props.movie.Title, props.movie.Poster);
+            localStorage.setItem(props.movie.original_title, poster_url);
         }
         else if (like==="secondary"){
             setLike("primary");
-            localStorage.removeItem(props.movie.Title);
+            localStorage.removeItem(props.movie.original_title);
         }
         
     }
@@ -44,7 +53,7 @@ export default function MovieCard(props){
                 <FavoriteIcon />
             </Fab>
             </div>
-            <div className="image"><img src={props.movie.Poster || poster_url} alt="poster_image"/></div> 
+            <div className="image"><Link className="link" to={`/movie/${props.movie.id}`}><img className="poster" src={props.movie.Poster || poster_url} alt="poster_image"/></Link></div> 
             <div className="title">{props.movie.Title || props.movie.original_title}</div>           
         </div>
     )
