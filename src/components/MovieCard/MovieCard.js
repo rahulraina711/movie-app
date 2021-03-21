@@ -7,13 +7,14 @@ import { Link } from 'react-router-dom';
 export default function MovieCard(props){
     const [like,setLike] = useState("primary");
     const poster_url = "https://image.tmdb.org/t/p/w300"+props.movie.poster_path;
-    let likedMovies = [];
+    
 
     useEffect(()=>{
         checkLikedMovies();
     },[])
 
     function checkLikedMovies () {
+        let likedMovies = [];
         if(localStorage.length===0){
              return console.log("no favs in storage")
             }

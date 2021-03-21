@@ -24,6 +24,7 @@ function HandleHome(){
 
     async function fetchRandomMovies() {
         setLoading(true);
+        setRandomMovies([]);
         const randomMovieList = [];
         for (var i = 0; i <= 19; i++) {
             var randomIdx = (Math.floor(Math.random() * 50000));
